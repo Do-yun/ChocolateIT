@@ -20,15 +20,39 @@
 }
 -(void)advertiseSelf: (BOOL)advertise{
     if (advertise){
-        self.advertiser = [[MCAdvertiserAssistant alloc] initWithServiceType:@"my-game" discoveryInfo:nil session: self.session];
-        [self.advertiser start];
+//        self.advertiser = [[MCAdvertiserAssistant alloc] initWithServiceType:@"my-game" discoveryInfo:nil session: self.session];
+//        [self.advertiser start];
+        self.advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.peerID discoveryInfo:nil serviceType:@"my-game"];
+        [self.advertiser startAdvertisingPeer];
     }
     else {
-        [self.advertiser stop];
+//        [self.advertiser stop];
+//        self.advertiser = nil;
+        [self.advertiser stopAdvertisingPeer];
         self.advertiser = nil;
     }
 }
+//- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser
+//didReceiveInvitationFromPeer:(MCPeerID *)peerID
+//                 withContext:(NSData *)context
+//           invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler {
+//
+//          //Automatically accept with a new session
+////          MCSession *newSession = [[MCSession alloc] initWithPeer:_myPeerID];
+////          newSession.delegate = self;
+//
+//          //Keep track of the pending sessions in a mutable dictionary
+//          _pendingSessionPeerIDMap[peerID.displayName] = self.session;
+//
+//          invitationHandler(YES,self.session);
+//
+//          /* Code here to present user with option to accept or decline peer */
+//}
 
+
+-(void)invitePeer:(MCPeerID *)peerID toSession:(nonnull MCSession *)session withContext:(nullable NSData *)context timeout:(NSTimeInterval)timeout{
+    
+}
 //keep track of the ppers that connect and disconnect from the game
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
     NSDictionary *userInfo = @{ @"peerID" : peerID,

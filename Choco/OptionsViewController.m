@@ -21,6 +21,7 @@
     [self.appDelegate.mpcHandler setupPeerWithDisplayName:[UIDevice currentDevice].name];
     [self.appDelegate.mpcHandler setupSession];
     [self.appDelegate.mpcHandler advertiseSelf:self.swVisible.isOn];
+    NSLog(@"after clicking options");
 }
 
 -(void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
@@ -33,10 +34,11 @@
     if (self.appDelegate.mpcHandler.session != nil) {
         [[self.appDelegate mpcHandler] setupBrowser];
         [[[self.appDelegate mpcHandler] browser] setDelegate:self];
-        
+
         [self presentViewController:self.appDelegate.mpcHandler.browser
                               animated:YES
                             completion:nil];
+       NSLog(@"session is not empty");
     }
 }
 

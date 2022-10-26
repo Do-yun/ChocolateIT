@@ -62,5 +62,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocalNetworkUsageDescription</key>
+        <string>Exchange data with nearby devices running the my-game app.</string>
+        <key>NSBonjourServices</key>
+        <array>
+            <string>_my-game._tcp</string>
+        </array>
 </dict>
 </plist>
