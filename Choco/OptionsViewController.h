@@ -10,7 +10,7 @@
 
 //NS_ASSUME_NONNULL_BEGIN
 
-@interface OptionsViewController : UIViewController <MCBrowserViewControllerDelegate>
+@interface OptionsViewController : UIViewController <MCBrowserViewControllerDelegate,MCNearbyServiceBrowserDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtPlayerName;
 @property (weak, nonatomic) IBOutlet UISwitch *swVisible;
 @property (weak, nonatomic) IBOutlet UITextView *tvPlayerList;

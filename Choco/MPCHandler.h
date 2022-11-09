@@ -9,7 +9,8 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 //NS_ASSUME_NONNULL_BEGIN
 
-@interface MPCHandler : NSObject <MCSessionDelegate>
+@interface MPCHandler : NSObject <MCSessionDelegate,MCNearbyServiceAdvertiserDelegate>
+
 
 @property (nonatomic, strong) MCPeerID *peerID;
 @property (nonatomic, strong) MCSession *session;
@@ -18,6 +19,7 @@
 //advertise a device and handle incoming invitations
 //@property (nonatomic, strong) MCAdvertiserAssistant *advertiser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *advertiser;
+//@property (nonatomic, weak) id<MCNearbyServiceAdvertiserDelegate> delegate;
 
 //display or public name be used for the device
 -(void)setupPeerWithDisplayName: (NSString*)displayName;

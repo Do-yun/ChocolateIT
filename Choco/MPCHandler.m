@@ -23,6 +23,7 @@
 //        self.advertiser = [[MCAdvertiserAssistant alloc] initWithServiceType:@"my-game" discoveryInfo:nil session: self.session];
 //        [self.advertiser start];
         self.advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:self.peerID discoveryInfo:nil serviceType:@"my-game"];
+        self.advertiser.delegate=self;
         [self.advertiser startAdvertisingPeer];
     }
     else {
@@ -32,26 +33,39 @@
         self.advertiser = nil;
     }
 }
-//- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser
-//didReceiveInvitationFromPeer:(MCPeerID *)peerID
-//                 withContext:(NSData *)context
-//           invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler {
-//
-//          //Automatically accept with a new session
-////          MCSession *newSession = [[MCSession alloc] initWithPeer:_myPeerID];
-////          newSession.delegate = self;
-//
-//          //Keep track of the pending sessions in a mutable dictionary
-//          _pendingSessionPeerIDMap[peerID.displayName] = self.session;
-//
-//          invitationHandler(YES,self.session);
-//
-//          /* Code here to present user with option to accept or decline peer */
-//}
+- (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser
+didReceiveInvitationFromPeer:(MCPeerID *)peerID
+                 withContext:(NSData *)context
+ invitationHandler:(void(^)(BOOL accept, MCSession *session))invitationHandler {
+//    MCSession *session = [[MCSession alloc] initWithPeer:self.peerID securityIdentity:nil encryptionPreference:MCEncryptionNone];
+    //self.session.delegate=self;
+    //BOOL acceptedInvitation = YES;
+    //invitationHandler(acceptedInvitation, (acceptedInvitation ? session: nil));
+    NSLog(@"peer Id is %@",peerID.displayName);
+    NSLog(@"did receive invitation");
+            BOOL acceptedInvitation = YES;
+
+//            MCSession *session = [[MCSession alloc] initWithPeer:self.peerID];
+//            session.delegate = self;
+//    void (^invitationHandler)(BOOL, MCSession *) = [ArrayInvitationHandler objectAtIndex:0];
+    invitationHandler(acceptedInvitation, self.session);
+            //invitationHandler(acceptedInvitation, (acceptedInvitation ? session : nil));
+    NSArray *peerIDs = [NSArray arrayWithObject:peerID];
+    NSString *message = @"Hello, World!";
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+   [self.session sendData:data
+                        toPeers:peerIDs
+                       withMode:MCSessionSendDataReliable
+                    error:&error];
+      
+    NSLog(@"succeed to send the data");
+
+}
 
 
 -(void)invitePeer:(MCPeerID *)peerID toSession:(nonnull MCSession *)session withContext:(nullable NSData *)context timeout:(NSTimeInterval)timeout{
-    
+    NSLog(@"here to invite peer");
 }
 //keep track of the ppers that connect and disconnect from the game
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
@@ -74,6 +88,8 @@
         object:nil
         userInfo:userInfo];
     });
+    NSLog(@"reach to receive data");
+    //NSLog(data);
 }
 
 
