@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 @interface ViewController : UIViewController
 
 

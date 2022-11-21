@@ -60,6 +60,7 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
                     error:&error];
       
     NSLog(@"succeed to send the data");
+    
 
 }
 
@@ -88,6 +89,10 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
         object:nil
         userInfo:userInfo];
     });
+    NSString *message =
+            [[NSString alloc] initWithData:data
+                                  encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", message);
     NSLog(@"reach to receive data");
     //NSLog(data);
 }

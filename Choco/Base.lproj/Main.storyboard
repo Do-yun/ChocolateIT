@@ -17,38 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FD-4b-Kvt">
-                                <rect key="frame" x="267" y="156" width="68" height="30"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="下载" translatesAutoresizingMaskIntoConstraints="NO" id="QRT-me-QDY">
+                                <rect key="frame" x="67" y="215" width="256" height="414"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Send"/>
                                 <connections>
-                                    <action selector="sendGuess:" destination="BYZ-38-t0r" eventType="touchDown" id="09r-Uc-ebJ"/>
+                                    <outletCollection property="gestureRecognizers" destination="UN1-D6-oa0" appends="YES" id="uO5-mY-LjA"/>
+                                    <outletCollection property="gestureRecognizers" destination="luO-04-KLe" appends="YES" id="fqO-DQ-ELd"/>
+                                    <outletCollection property="gestureRecognizers" destination="MAq-AQ-gnH" appends="YES" id="4pg-Dy-gQK"/>
+                                    <outletCollection property="gestureRecognizers" destination="09C-7w-tJz" appends="YES" id="07u-Ky-ESG"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-2d-Kcl">
-                                <rect key="frame" x="55" y="153" width="77" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelGuessing:" destination="BYZ-38-t0r" eventType="touchDown" id="oZL-YZ-Whf"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TdG-DT-BCe">
-                                <rect key="frame" x="55" y="196" width="280" height="597"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Guess a number (1 - 100)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-p7-xi2">
-                                <rect key="frame" x="55" y="111" width="280" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -65,7 +43,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="MPCDemo" id="xzA-Rj-krf">
+                    <navigationItem key="navigationItem" title="ChocolateIT !" id="xzA-Rj-krf">
                         <centerItemGroups>
                             <barButtonItemGroup customizationDisposition="fixed" id="7uc-J1-3jg">
                                 <barButtonItems>
@@ -79,14 +57,28 @@
                         </connections>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="btnCancel" destination="tcj-2d-Kcl" id="WK7-8u-uzm"/>
-                        <outlet property="btnSend" destination="9FD-4b-Kvt" id="U31-nw-KY5"/>
-                        <outlet property="tvHistory" destination="TdG-DT-BCe" id="D3C-HB-gvj"/>
-                        <outlet property="txtGuess" destination="mBp-p7-xi2" id="rFj-2l-rrp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="UN1-D6-oa0">
+                    <connections>
+                        <action selector="SwipeActionRight:" destination="BYZ-38-t0r" id="ibz-5C-DBA"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="luO-04-KLe">
+                    <connections>
+                        <action selector="SwipeActionLeft:" destination="BYZ-38-t0r" id="HNl-E1-9VL"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="MAq-AQ-gnH">
+                    <connections>
+                        <action selector="SwipeActionUp:" destination="BYZ-38-t0r" id="JKC-cI-wYG"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="09C-7w-tJz">
+                    <connections>
+                        <action selector="SwipeActionDown:" destination="BYZ-38-t0r" id="OX6-A6-zxv"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4650.7692307692305" y="3.5545023696682461"/>
         </scene>
@@ -172,14 +164,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="下载" width="225" height="225"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

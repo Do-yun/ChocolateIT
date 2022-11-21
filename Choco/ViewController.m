@@ -6,27 +6,39 @@
 //
 
 #import "ViewController.h"
-
+#import "AppDelegate.h"
 @interface ViewController ()
-
+@property (strong, nonatomic) AppDelegate *appDelegate;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    // Do any additional setup after loading the view.
-//    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//
-//    [self.appDelegate.mpcHandler setupPeerWithDisplayName: [UIDevice currentDevice].name];
-//    [self.appDelegate.mpcHandler setupSession];
-//    [self.appDelegate.mpcHandler advertiseSelf: self.swVisible.isOn];
-//
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(peerChangedStateWithNotification:)
-//                                                     name:@"MPCDemo_DidChangeStateNotification"
-//                                                   object:nil];
+    //    // Do any additional setup after loading the view.
+    
 }
-
+- (IBAction)SwipeActionRight:(id)sender {
+    NSLog(@"I swipe right");
+ 
+    NSString *message = @"Hello, World!";
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    if ([self.appDelegate.mpcHandler.session sendData:data
+                                toPeers: [self.appDelegate.mpcHandler.session connectedPeers]
+                               withMode:MCSessionSendDataUnreliable
+                                   error:&error]){
+        NSLog(@"Data is sent");
+    }
+}
+- (IBAction)SwipeActionLeft:(id)sender {
+    NSLog(@"I swipe left");
+}
+- (IBAction)SwipeActionUp:(id)sender {
+    NSLog(@"I swipe up");
+}
+- (IBAction)SwipeActionDown:(id)sender {
+    NSLog(@"I swipe down");
+}
 
 @end
