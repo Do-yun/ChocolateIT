@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import <MPCHandler.h>
 
 //NS_ASSUME_NONNULL_BEGIN
 
@@ -14,10 +15,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtPlayerName;
 @property (weak, nonatomic) IBOutlet UISwitch *swVisible;
 @property (weak, nonatomic) IBOutlet UITextView *tvPlayerList;
+@property (weak, nonatomic) IBOutlet UIImageView *received_img;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
 - (IBAction)disconnect:(id)sender;
 - (IBAction)searchForPlayers:(id)sender;
 - (IBAction)toggleVilsibility:(id)sender;
+- (IBAction)sendfixedData:(id)sender;
 @end
 
 //NS_ASSUME_NONNULL_END

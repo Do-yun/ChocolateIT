@@ -52,13 +52,19 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
             //invitationHandler(acceptedInvitation, (acceptedInvitation ? session : nil));
     NSArray *peerIDs = [NSArray arrayWithObject:peerID];
     NSString *message = @"Hello, World!";
+    
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
-   [self.session sendData:data
+    /*
+   [self.session sendData:apple_img
                         toPeers:peerIDs
                        withMode:MCSessionSendDataReliable
-                    error:&error];
-      
+                    error:&error];*/
+    [self.session sendData:data
+                         toPeers:peerIDs
+                        withMode:MCSessionSendDataReliable
+                     error:&error];
+    
     NSLog(@"succeed to send the data");
     
 
@@ -89,10 +95,13 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
         object:nil
         userInfo:userInfo];
     });
+    /*
     NSString *message =
             [[NSString alloc] initWithData:data
                                   encoding:NSUTF8StringEncoding];
         NSLog(@"%@", message);
+     */
+    // 여기에서 viewcontroller를 찾아서 데이터를 보내야함..
     NSLog(@"reach to receive data");
     //NSLog(data);
 }

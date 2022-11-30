@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hmr-Wd-LfT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hmr-Wd-LfT">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,13 +44,6 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="ChocolateIT !" id="xzA-Rj-krf">
-                        <centerItemGroups>
-                            <barButtonItemGroup customizationDisposition="fixed" id="7uc-J1-3jg">
-                                <barButtonItems>
-                                    <barButtonItem title="Options" width="117" id="JYI-Uw-7Qo"/>
-                                </barButtonItems>
-                            </barButtonItemGroup>
-                        </centerItemGroups>
                         <connections>
                             <outlet property="leftBarButtonItem" destination="F2p-fS-Ur4" id="fpv-ui-RnK"/>
                             <outlet property="rightBarButtonItem" destination="C6v-u5-a3Q" id="2eu-3i-4vo"/>
@@ -97,7 +90,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="visible to others?" translatesAutoresizingMaskIntoConstraints="NO" id="lEG-Ek-AmI">
-                                <rect key="frame" x="172" y="227" width="49" height="31"/>
+                                <rect key="frame" x="172" y="196" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="toggleVilsibility:" destination="h94-gx-nLx" eventType="touchDown" id="avq-AQ-bjd"/>
@@ -107,7 +100,6 @@
                                 <rect key="frame" x="147" y="720" width="111" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Disconnect"/>
                                 <connections>
                                     <action selector="disconnect:" destination="h94-gx-nLx" eventType="touchDown" id="v23-K3-sZ3"/>
                                 </connections>
@@ -121,12 +113,23 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpw-yg-PBe">
-                                <rect key="frame" x="91" y="321" width="209" height="35"/>
+                                <rect key="frame" x="98" y="253" width="209" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Browse for other players"/>
                                 <connections>
                                     <action selector="searchForPlayers:" destination="h94-gx-nLx" eventType="touchDown" id="GBu-2p-Kmj"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdd-GI-KS4">
+                                <rect key="frame" x="82" y="296" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nix-1V-vYi">
+                                <rect key="frame" x="251" y="197" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SendfixedData"/>
+                                <connections>
+                                    <action selector="sendfixedData:" destination="h94-gx-nLx" eventType="touchDown" id="0Vg-3u-WMV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,6 +138,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="XJQ-XN-VQD"/>
                     <connections>
+                        <outlet property="received_img" destination="fdd-GI-KS4" id="Dfn-cr-JFz"/>
+                        <outlet property="sendButton" destination="nix-1V-vYi" id="dYf-ZP-2TE"/>
                         <outlet property="swVisible" destination="lEG-Ek-AmI" id="9UT-F4-yK8"/>
                         <outlet property="tvPlayerList" destination="i80-uf-LqU" id="eaA-Nc-ChO"/>
                         <outlet property="txtPlayerName" destination="3Ww-qz-hOB" id="EGS-YJ-ihU"/>
@@ -150,7 +155,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hmr-Wd-LfT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Zt-ag-h0j">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -166,7 +171,7 @@
     <resources>
         <image name="下载" width="225" height="225"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

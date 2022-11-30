@@ -65,6 +65,19 @@
        NSLog(@"session is not empty");
     }
 }
+
+-(IBAction)sendfixedData:(id)sender{
+    if(self.appDelegate.mpcHandler.session != nil){
+        //NSString *message = @"Hello, World!";
+        //NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [NSData dataWithData:UIImagePNGRepresentation([UIImage imageNamed:@"apple.png"])];
+        NSError *error = nil;
+        [self.appDelegate.mpcHandler.session sendData:data
+                             toPeers:self.appDelegate.mpcHandler.session.connectedPeers
+                            withMode:MCSessionSendDataReliable
+                         error:&error];
+    }
+}
 - (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
     [self.appDelegate.mpcHandler.browser dismissViewControllerAnimated:YES completion:nil];
 }
@@ -96,17 +109,25 @@
 }
 
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
+    NSLog(@"reach here?");
     NSDictionary *userInfo = @{@"data": data, @"peerID" : peerID
                               };
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"MPCDemo_DidReceiveDataNotification"
         object:nil
         userInfo:userInfo];
     });
+     
+    
     NSString *message =
             [[NSString alloc] initWithData:data
                                   encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", message);
+      
+    NSLog(@"%@", message);
+    
+    NSLog(@"reach here?");
+    self.received_img.image = [UIImage imageWithData:data];
     NSLog(@"reach to receive data");
     //NSLog(data);
 }
