@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 @interface ViewController : UIViewController
 
 

@@ -15,6 +15,7 @@
 		6610619928E51E5300DC0371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6610619728E51E5300DC0371 /* LaunchScreen.storyboard */; };
 		6610619C28E51E5300DC0371 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6610619B28E51E5300DC0371 /* main.m */; };
 		667B768B2931E91F004D1B5A /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 667B768A2931E91F004D1B5A /* apple.png */; };
+		66D5D4AC293BE86E00C73C31 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D5D4AB293BE86E00C73C31 /* AVFoundation.framework */; };
 		92E7E47628ECF7570049BECD /* MPCHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E7E47528ECF7570049BECD /* MPCHandler.m */; };
 		92E7E47928ED19030049BECD /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E7E47828ED19030049BECD /* OptionsViewController.m */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		6610619A28E51E5300DC0371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6610619B28E51E5300DC0371 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		667B768A2931E91F004D1B5A /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
+		66D5D4AB293BE86E00C73C31 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		92E7E47428ECF7560049BECD /* MPCHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPCHandler.h; sourceTree = "<group>"; };
 		92E7E47528ECF7570049BECD /* MPCHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPCHandler.m; sourceTree = "<group>"; };
 		92E7E47728ED19030049BECD /* OptionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D5D4AC293BE86E00C73C31 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +58,7 @@
 			children = (
 				6610618828E51E5200DC0371 /* Choco */,
 				6610618728E51E5200DC0371 /* Products */,
+				66D5D4AA293BE86E00C73C31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +91,14 @@
 				92E7E47528ECF7570049BECD /* MPCHandler.m */,
 			);
 			path = Choco;
+			sourceTree = "<group>";
+		};
+		66D5D4AA293BE86E00C73C31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66D5D4AB293BE86E00C73C31 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

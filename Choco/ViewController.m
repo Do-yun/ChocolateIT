@@ -7,6 +7,9 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
+
 @interface ViewController ()
 @property (strong, nonatomic) AppDelegate *appDelegate;
 @end
@@ -17,6 +20,21 @@
     [super viewDidLoad];
     //    // Do any additional setup after loading the view.
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSURL *url = [NSURL URLWithString:@"http://techslides.com/demos/sample-videos/small.mp4"];
+    AVPlayer *player = [AVPlayer playerWithURL:url];
+
+    // create a player view controller
+    /*
+    AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];
+    [self presentViewController:controller animated:YES completion:nil];
+    controller.player = player;
+    [player play];
+     */
+    XCDYouTubeVideoPlayerViewController *videoPlayerViewController = [[XCDYouTubeVideoPlayerViewController alloc] initWithVideoIdentifier:@"9bZkp7q19f0"];
+    [self presentMoviePlayerViewControllerAnimated:videoPlayerViewController];
 }
 - (IBAction)SwipeActionRight:(id)sender {
     NSLog(@"I swipe right");
